@@ -1,0 +1,48 @@
+$generalFont: 25px;
+$inputMargin: 30px 0 30px 0;
+$textAreaHeight: 1500px;
+$textAreaWidth: 900px;
+
+div{
+    font-size: $generalFont;
+}
+input{
+    font-size: $generalFont;
+}
+button{
+    font-size: $generalFont;
+}
+textarea{
+    font-size: $generalFont;
+    min-height: $textAreaHeight;
+    min-width: $textAreaWidth;
+}
+
+
+.individualInput{
+    margin: $inputMargin;
+}
+
+#app{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 200px 1fr;
+    grid-template-areas: "header header"
+                         "inputArea outputArea";
+
+    #header{
+        grid-area: header;
+    }
+
+    #detailsInput{
+        grid-area: inputArea;
+
+        #submit{
+            margin: 30px 0 0 0;
+        }
+    }
+
+    #generatedListOutput{
+        grid-area: outputArea;
+    }
+}
