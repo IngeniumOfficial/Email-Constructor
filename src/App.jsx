@@ -6,6 +6,7 @@ export default function App() {
   const [details, setDetails] = createSignal({});
   const [submitted, setSubmitted] = createSignal([]); // Make sure to only bulk update this
   const [dataShow, setDataShow] = createSignal(true);
+  const [dataSmallShow, setDataSmallShow] = createSignal(false);
 
   const [newLayout, setNewLayout] = createSignal(window.innerWidth); // 'regular', 'small', 'phone'
 
@@ -129,19 +130,44 @@ export default function App() {
               <button onClick={handleRemove}>Remove An Input</button>
               <br></br>
               <button id='submit' onClick={handleSubmit}>Submit</button>
-              <Show when={dataShow()} fallback={
+              <Show when={dataSmallShow()} fallback={
                 <>
                   <br></br>
-                  <button onClick={() => setDataShow(prev => !prev)}>Show</button>
+                  <button onClick={() => setDataSmallShow(prev => !prev)}>Show</button>
                 </>
               }>
                 <br></br>
-                <button onClick={() => setDataShow(prev => !prev)}>Hide</button>
+                <button onClick={() => setDataSmallShow(prev => !prev)}>Hide</button>
                 <br></br>
                 <textarea readonly id='data'>
                   {JSON.stringify(details(), null, 2)}
                 </textarea>
               </Show>
+            </div>
+            <div id='generatedListOutput'>
+              <textarea id='output'>
+                {submitted().map((el) => {
+                  return el+'\n';
+                })}
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </Match>
+      <Match when={newLayout() <= 650}>
+      <div id='app' >
+          <div id='header'>
+            <h2>Email Constructor</h2>
+          </div>
+          <div id='lowerCollective'>
+            <div id='detailsInput'>
+              <For each={inputCount()}>{(input, index) =>
+                <InputDetails idd={index()+1} setInputCount={setInputCount()} setDetails={setDetails} details={details()} />
+              }</For>
+              <button onClick={handleAdd}>Add An Input</button>
+              <button onClick={handleRemove}>Remove An Input</button>
+              <br></br>
+              <button id='submit' onClick={handleSubmit}>Submit</button>
             </div>
             <div id='generatedListOutput'>
               <textarea id='output'>

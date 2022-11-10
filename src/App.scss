@@ -10,7 +10,6 @@ $textarea1401to1600: 650px;
 $textarea1201to1400: 500px;
 $textarea1001to1200: 350px;
 
-
 .individualInput{
     margin: $inputMargin;
 }
@@ -25,7 +24,6 @@ $textarea1001to1200: 350px;
     #header{
         grid-area: header;
     }
-
     #detailsInput{
         grid-area: inputArea;
 
@@ -42,11 +40,13 @@ $textarea1001to1200: 350px;
             border-radius: 8px;
         }
     }
-
     #generatedListOutput{
         grid-area: outputArea;
+        margin-right: 5px;
     }
 }
+
+
 
 
 @media screen and (min-width: 1601px) {
@@ -116,12 +116,12 @@ $textarea1001to1200: 350px;
     #data{
         font-size: $genFont1201to1400;
         min-height: ($textAreaHeight)-200;
-        min-width: ($textarea1001to1200)-200;
+        min-width: ($textarea1001to1200)-100;
     }
     #output{
         font-size: $genFont1201to1400;
         min-height: $textAreaHeight;
-        min-width: $textarea1001to1200;
+        min-width: $textarea1001to1200+100;
     }
 }
 @media screen and (max-width: 900px) {
@@ -139,5 +139,22 @@ $textarea1001to1200: 350px;
     #lowerCollective{
         display: flex;
         flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    #app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #output{
+        margin-top: 30px;
+        min-width: 300px;
+    }
+    #lowerCollective{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
