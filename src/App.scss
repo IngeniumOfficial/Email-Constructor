@@ -30,7 +30,16 @@ $textarea1001to1200: 350px;
         grid-area: inputArea;
 
         #submit{
-            margin: 30px 0 0 0;
+            margin: 30px 0 30px 0;
+            padding: 10px;
+        }
+
+        #data{
+            padding: 5px;
+            margin: 20px 0 0 5px;
+            background-color: rgb(58, 57, 56);
+            color: rgb(207, 207, 207);
+            border-radius: 8px;
         }
     }
 
@@ -41,8 +50,10 @@ $textarea1001to1200: 350px;
 
 
 @media screen and (min-width: 1601px) {
-    textarea{
+    #output{
         min-width: $textarea1601;
+        font-size: $generalFont;
+        min-height: $textAreaHeight;
     }
     div{
         font-size: $generalFont;
@@ -53,14 +64,17 @@ $textarea1001to1200: 350px;
     button{
         font-size: $generalFont;
     }
-    textarea{
+    #data{
         font-size: $generalFont;
-        min-height: $textAreaHeight;
+        min-height: ($textAreaHeight)-200;
+        min-width: ($textarea1601)-200;
     }
 }
 @media screen and (max-width: 1600px) {
-    textarea{
+    #output{
         min-width: $textarea1401to1600;
+        font-size: $genFont1401to1600;
+        min-height: $textAreaHeight;
     }
     div{
         font-size: $genFont1401to1600;
@@ -71,14 +85,17 @@ $textarea1001to1200: 350px;
     button{
         font-size: $genFont1401to1600;
     }
-    textarea{
+    #data{
         font-size: $genFont1401to1600;
-        min-height: $textAreaHeight;
+        min-width: ($textarea1401to1600)-200;
+        min-height: ($textAreaHeight)-200;
     }
 }
 @media screen and (max-width: 1400px) {
-    textarea{
+    #output{
         min-width: $textarea1201to1400;
+        font-size: $genFont1201to1400;
+        min-height: $textAreaHeight;
     }
     div{
         font-size: $genFont1201to1400;
@@ -89,20 +106,38 @@ $textarea1001to1200: 350px;
     button{
         font-size: $genFont1201to1400;
     }
-    textarea{
+    #data{
         font-size: $genFont1201to1400;
-        min-height: $textAreaHeight;
+        min-height: ($textAreaHeight)-200;
+        min-width: ($textarea1201to1400)-200;
     }
 }
 @media screen and (max-width: 1200px) {
-    textarea{
+    #data{
+        font-size: $genFont1201to1400;
+        min-height: ($textAreaHeight)-200;
+        min-width: ($textarea1001to1200)-200;
+    }
+    #output{
+        font-size: $genFont1201to1400;
+        min-height: $textAreaHeight;
         min-width: $textarea1001to1200;
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     #app{
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    #output{
+        min-width: ($textarea1001to1200);
+    }
+    #data{
+        min-width: ($textarea1001to1200)-150;
+    }
+    #lowerCollective{
+        display: flex;
+        flex-direction: row;
     }
 }
