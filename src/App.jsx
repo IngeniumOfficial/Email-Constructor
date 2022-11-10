@@ -1,10 +1,11 @@
-import { createSignal, For, createEffect } from 'solid-js';
+import { createSignal, For, createEffect, Show } from 'solid-js';
 import './App.scss';
 
 export default function App() {
   const [inputCount, setInputCount] = createSignal([]);
   const [details, setDetails] = createSignal({});
   const [submitted, setSubmitted] = createSignal([]); // Make sure to only bulk update this
+  const [dataShow, setDataShow] = createSignal(true);
 
   const handleAdd = () => {
     setInputCount(prev => [...prev, '1']);
@@ -87,9 +88,12 @@ export default function App() {
         <button onClick={handleRemove}>Remove An Input</button>
         <br></br>
         <button id='submit' onClick={handleSubmit}>Submit</button>
-        <p>
-          {JSON.stringify(details())}
-        </p>
+        <Show when={dataShow()} fallback={<button onClick={() => setDataShow(prev => !prev)}>Show</button>}>
+          <p id='data'>
+            {JSON.stringify(details(), null, '\t')}
+          </p>
+          <button onClick={() => setDataShow(prev => !prev)}>Hide</button>
+        </Show>
       </div>
       <div id='generatedListOutput'>
         <textarea>

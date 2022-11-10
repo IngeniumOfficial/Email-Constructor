@@ -1,22 +1,14 @@
-$generalFont: 25px;
 $inputMargin: 30px 0 30px 0;
 $textAreaHeight: 1500px;
-$textAreaWidth: 900px;
 
-div{
-    font-size: $generalFont;
-}
-input{
-    font-size: $generalFont;
-}
-button{
-    font-size: $generalFont;
-}
-textarea{
-    font-size: $generalFont;
-    min-height: $textAreaHeight;
-    min-width: $textAreaWidth;
-}
+$generalFont: 25px;
+$genFont1401to1600: 20px;
+$genFont1201to1400: 15px;
+
+$textarea1601: 900px;
+$textarea1401to1600: 650px;
+$textarea1201to1400: 500px;
+$textarea1001to1200: 350px;
 
 
 .individualInput{
@@ -26,7 +18,7 @@ textarea{
 #app{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 100px 1fr;
     grid-template-areas: "header header"
                          "inputArea outputArea";
 
@@ -44,5 +36,73 @@ textarea{
 
     #generatedListOutput{
         grid-area: outputArea;
+    }
+}
+
+
+@media screen and (min-width: 1601px) {
+    textarea{
+        min-width: $textarea1601;
+    }
+    div{
+        font-size: $generalFont;
+    }
+    input{
+        font-size: $generalFont;
+    }
+    button{
+        font-size: $generalFont;
+    }
+    textarea{
+        font-size: $generalFont;
+        min-height: $textAreaHeight;
+    }
+}
+@media screen and (max-width: 1600px) {
+    textarea{
+        min-width: $textarea1401to1600;
+    }
+    div{
+        font-size: $genFont1401to1600;
+    }
+    input{
+        font-size: $genFont1401to1600;
+    }
+    button{
+        font-size: $genFont1401to1600;
+    }
+    textarea{
+        font-size: $genFont1401to1600;
+        min-height: $textAreaHeight;
+    }
+}
+@media screen and (max-width: 1400px) {
+    textarea{
+        min-width: $textarea1201to1400;
+    }
+    div{
+        font-size: $genFont1201to1400;
+    }
+    input{
+        font-size: $genFont1201to1400;
+    }
+    button{
+        font-size: $genFont1201to1400;
+    }
+    textarea{
+        font-size: $genFont1201to1400;
+        min-height: $textAreaHeight;
+    }
+}
+@media screen and (max-width: 1200px) {
+    textarea{
+        min-width: $textarea1001to1200;
+    }
+}
+@media screen and (max-width: 800px) {
+    #app{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
